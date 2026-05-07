@@ -370,11 +370,14 @@ a:hover {
   border-color: #BFDBFE;
 }
 
+/* Width tuned so each mechanism item matches one top-row panel width
+   (top row = 4 cols of 1fr with gap 0.6rem). Keeps items square AND
+   the same height as panels above. */
 .scene-mechanism {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.6rem;
-  max-width: 78%;
+  max-width: calc(75% - 0.15rem);
   margin: 0 auto;
 }
 
@@ -382,7 +385,7 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.6rem;
-  max-width: 62%;
+  max-width: calc(50% - 0.3rem);
   margin: 0 auto;
 }
 
