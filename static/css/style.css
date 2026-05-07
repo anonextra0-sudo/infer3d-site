@@ -1,0 +1,558 @@
+/* ============================================================
+   style.css — Infer3D Research Website
+   ============================================================ */
+
+/* --- CSS Variables --- */
+:root {
+  --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  --color-hero-start: #0F172A;
+  --color-hero-end: #1E3A5F;
+  --color-text: #1E293B;
+  --color-text-secondary: #475569;
+  --color-bg-light: #F8FAFC;
+  --color-border: #E2E8F0;
+  --color-surface: #FFFFFF;
+  --font-heading: 'Source Serif 4', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --carousel-radius: 8px;
+}
+
+/* --- Global --- */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+.title, h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-primary);
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  background: linear-gradient(135deg, var(--color-hero-start) 0%, var(--color-hero-end) 100%);
+  padding: 4rem 1.5rem 3rem;
+}
+
+.hero-section .publication-title {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  max-width: 850px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-section .publication-authors {
+  color: #CBD5E1;
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+.hero-section .publication-authors a {
+  color: #93C5FD;
+}
+.hero-section .publication-authors a:hover {
+  color: #BFDBFE;
+}
+.hero-section .publication-venue {
+  color: #94A3B8;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.publication-links .button {
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  font-size: 0.95rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+.publication-links .button:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.45);
+  color: #FFFFFF;
+}
+.publication-links .button .icon {
+  margin-right: 0.3rem;
+}
+
+/* --- Teaser Section --- */
+.teaser-section {
+  padding: 2.5rem 1.5rem 1.5rem;
+  background: var(--color-surface);
+}
+.teaser-section video {
+  width: 100%;
+  border-radius: var(--carousel-radius);
+}
+.teaser-caption {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Abstract Section --- */
+.abstract-section {
+  padding: 3rem 1.5rem;
+  background: var(--color-bg-light);
+}
+.abstract-section .content {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* --- Method Section --- */
+.method-section {
+  padding: 3rem 1.5rem;
+  background: var(--color-surface);
+}
+.method-section .method-figure {
+  width: 100%;
+  border-radius: var(--carousel-radius);
+}
+.method-caption {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* --- Results Section --- */
+.results-section {
+  padding: 3rem 1.5rem 2rem;
+  background: var(--color-bg-light);
+}
+.results-section .section-title {
+  margin-bottom: 2rem;
+}
+.results-section .subsection-title {
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+.results-section .dataset-title {
+  margin-bottom: 1rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+/* --- Comparison Carousel --- */
+.comparison-carousel {
+  position: relative;
+  margin-bottom: 2.5rem;
+  background: var(--color-surface);
+  border-radius: var(--carousel-radius);
+  padding: 1.25rem 1rem 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: none;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.carousel-slide.active {
+  display: block;
+  opacity: 1;
+}
+
+/* --- Comparison Panels (the 5 columns) --- */
+.comparison-panels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+
+.panel {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* override Bulma .panel defaults (the class name collides) */
+  box-shadow: none;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.panel-label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.panel-media img,
+.panel-media video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 4px;
+  background: #000;
+  display: block;
+}
+
+/* Force a 1:1 container using the padding-bottom trick.
+   height:0 + padding-bottom:100% is bulletproof — padding percentage
+   is always relative to the element's width, so this is always square
+   and content can never push it taller. */
+.panel-media.single-media {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.panel-media.single-media > img,
+.panel-media.single-media > video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* --- RealCars 5-panel row: wider GT (2 horizontal stills) + 4 videos --- */
+.realcars-main-panels {
+  display: grid;
+  grid-template-columns: 1.9fr repeat(4, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+/* GT panel has two stills side-by-side. Use the same square padding-trick
+   as single-media so heights match the video panels. */
+.panel-stacked-h .panel-media {
+  position: relative;
+  height: 0;
+  padding-bottom: 52.5%;   /* matches the wider 1.9fr column so tiles ~= square */
+}
+.stacked-images-h {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  width: 100%;
+  height: 100%;
+}
+.stacked-item-h {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stacked-item-h img {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: contain;
+  border-radius: 3px;
+  background: #fff;
+  display: block;
+}
+
+/* --- Stacked Intermediate Panel --- */
+.panel-stacked .panel-media {
+  aspect-ratio: auto;
+}
+
+.stacked-images {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+  height: 100%;
+}
+
+.stacked-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+}
+
+.sub-label {
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.15rem;
+  white-space: nowrap;
+}
+
+.stacked-item img {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: contain;
+  border-radius: 3px;
+  background: #000;
+  display: block;
+}
+
+/* Scene results layout: split clean comparison row + mechanism row */
+.scene-main-panels {
+  margin-bottom: 0.85rem;
+}
+
+.object-main-panels {
+  margin-bottom: 0.85rem;
+}
+
+.intermediate-row {
+  display: none;
+}
+
+.comparison-carousel.show-intermediate .intermediate-row {
+  display: block;
+}
+
+.intermediate-toggle {
+  display: block;
+  margin: 0.1rem auto 0.75rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-light);
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.intermediate-toggle:hover {
+  background: #EEF2FF;
+  border-color: #BFDBFE;
+}
+
+.scene-mechanism {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  max-width: 78%;
+  margin: 0 auto;
+}
+
+.object-mechanism {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  max-width: 62%;
+  margin: 0 auto;
+}
+
+.scene-mechanism .mechanism-item,
+.object-mechanism .mechanism-item {
+  text-align: center;
+}
+
+.scene-mechanism .sub-label,
+.object-mechanism .sub-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.scene-mechanism .panel-media.single-media {
+  aspect-ratio: 4 / 3;
+}
+
+.object-mechanism .panel-media.single-media {
+  aspect-ratio: 4 / 3;
+}
+
+.scene-mechanism .panel-media img,
+.object-mechanism .panel-media img {
+  max-height: 220px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* --- Carousel Controls --- */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  user-select: none;
+}
+
+.carousel-arrow {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.carousel-arrow:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.08);
+}
+.carousel-arrow:active {
+  transform: scale(0.95);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  padding: 0;
+}
+.carousel-dot.active {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
+.carousel-dot:hover:not(.active) {
+  background: #94A3B8;
+}
+
+.carousel-counter {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  min-width: 3em;
+  text-align: center;
+}
+
+/* --- Placeholder for missing assets --- */
+.panel-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #F1F5F9;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94A3B8;
+  font-size: 0.8rem;
+}
+
+/* --- BibTeX Section --- */
+.bibtex-section {
+  padding: 3rem 1.5rem;
+  background: var(--color-surface);
+}
+.bibtex-section pre {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--carousel-radius);
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--color-bg-light);
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+.site-footer p {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 1023px) {
+  .hero-section .publication-title {
+    font-size: 1.8rem;
+  }
+  .comparison-panels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .realcars-main-panels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .panel-stacked-h .panel-media {
+    padding-bottom: 50%;
+  }
+  .scene-mechanism {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .object-mechanism {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero-section .publication-title {
+    font-size: 1.4rem;
+  }
+  .comparison-panels {
+    grid-template-columns: 1fr;
+  }
+  .carousel-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,9 @@
+.DS_Store
+*.swp
+*.swo
+*~
+.claude/
+
+# Internal dev files — never publish
+AGENT.md
+scripts/
