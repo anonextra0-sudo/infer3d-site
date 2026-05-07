@@ -282,12 +282,14 @@ function buildCarousel(container, config) {
   });
 
   // Toggle for intermediate rows (skip for configs with no intermediate row).
+  // Default: expanded.
   if (config.type !== 'realcars') {
+    container.classList.add('show-intermediate');
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'intermediate-toggle';
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.textContent = 'Click to see our intermediate outputs';
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.textContent = 'Hide our intermediate outputs';
     toggle.addEventListener('click', () => {
       const expanded = container.classList.toggle('show-intermediate');
       toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
